@@ -1,11 +1,25 @@
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.util.Scanner;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class AppTest {
 
-        public static void run(String input){
-        //입력값
-        //명언 프로그램 실행
+    @Test
+    @DisplayName("'== 명언 앱 ==' 출력")
+    void t1() throws Exception {
+        Scanner sc = TestUtil.genScanner("종료");
 
+        ByteArrayOutputStream outputStream = TestUtil.setOutByteArray();
+        new App(sc).run();
 
-        //출력값
+        String out = outputStream.toString();
+
+        assertThat(out).contains("== 명언 앱 ==");
+
     }
 
 }

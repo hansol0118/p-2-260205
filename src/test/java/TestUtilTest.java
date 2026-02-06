@@ -12,7 +12,7 @@ public class TestUtilTest {
     @DisplayName("TestUtil.genScanner()")
     void t1() {
 
-        Scanner scanner = TestUtil.getScanner("""
+        Scanner scanner = TestUtil.genScanner("""
                 등록
                 현재를 사랑하라.
                 작자미상
