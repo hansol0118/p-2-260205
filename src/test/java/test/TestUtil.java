@@ -1,14 +1,15 @@
+package test;
+
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Scanner;
 
 public class TestUtil {
+
     private static PrintStream ORIGINAL_OUT = System.out;
     private static PrintStream CURRENT_OUT = System.out;
 
-
-    public static Scanner genScanner(String input){
+    public static Scanner genScanner(String input) {
         return new Scanner(input);
     }
 
@@ -19,10 +20,11 @@ public class TestUtil {
 
         System.setOut(printStream);
         CURRENT_OUT = printStream;
+
         return byteArrayOutputStream;
     }
 
-    public static void clearSetOutToByteArray(ByteArrayOutputStream outputStream) throws IOException {
+    public static void clearSetOutToByteArray(ByteArrayOutputStream outputStream) throws Exception {
         System.setOut(ORIGINAL_OUT);
         outputStream.close();
         CURRENT_OUT.close();
