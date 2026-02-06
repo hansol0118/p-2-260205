@@ -1,5 +1,6 @@
 package com.back.wiseSaying.service;
 
+import com.back.global.AppContext;
 import com.back.wiseSaying.entity.WiseSaying;
 import com.back.wiseSaying.repository.WiseSayingRepository;
 
@@ -9,7 +10,7 @@ public class WiseSayingService {
     private WiseSayingRepository wiseSayingRepository;
 
     public WiseSayingService() {
-        this.wiseSayingRepository = new WiseSayingRepository();
+        this.wiseSayingRepository = AppContext.wiseSayingRepository;
     }
 
     public WiseSaying write(String content, String author) {
@@ -19,7 +20,24 @@ public class WiseSayingService {
         return wiseSaying;
     }
 
+    public boolean delete(int id) {
+        return wiseSayingRepository.delete(id);
+    }
+
+    public void modify(WiseSaying wiseSaying, String newSaying, String newAuthor) {
+
+        wiseSaying.setSaying(newSaying);
+        wiseSaying.setAuthor(newAuthor);
+
+        wiseSayingRepository.save(wiseSaying);
+    }
+
     public List<WiseSaying> findListDesc() {
         return wiseSayingRepository.findListDesc();
     }
+
+    public WiseSaying findByIdOrNull(int id) {
+        return wiseSayingRepository.findByIdOrNull(id);
+    }
+
 }
