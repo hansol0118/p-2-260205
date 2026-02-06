@@ -1,5 +1,6 @@
 package com.back.wiseSaying.controller;
 
+import com.back.global.AppContext;
 import com.back.wiseSaying.entity.WiseSaying;
 import com.back.wiseSaying.service.WiseSayingService;
 
@@ -11,9 +12,9 @@ public class WiseSayingController {
     private Scanner sc;
     private WiseSayingService wiseSayingService;
 
-    public WiseSayingController(Scanner sc) {
+    public WiseSayingController() {
         this.sc = sc;
-        this.wiseSayingService = new WiseSayingService();
+        this.wiseSayingService = AppContext.wiseSayingService;
     }
 
     public void actionAdd() {
