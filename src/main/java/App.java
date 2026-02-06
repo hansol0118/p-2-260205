@@ -1,3 +1,7 @@
+import com.back.system.controller.SystemController;
+import com.back.wiseSaying.controller.WiseSayingController;
+import com.back.wiseSaying.entity.WiseSaying;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -20,6 +24,7 @@ public class App {
 
         while (true) {
             System.out.println("명령) ");
+
             String cmd = sc.nextLine();
             switch (cmd) {
                 case "등록" -> wiseSayingController.actionAdd(sc);
